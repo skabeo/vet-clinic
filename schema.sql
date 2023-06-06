@@ -8,3 +8,6 @@ CREATE TABLE animals (
     neutured BOOLEAN,
     weight_kg DECIMAL(5, 2)
 );
+
+ALTER TABLE animals
+ADD COLUMN species varchar(100);
