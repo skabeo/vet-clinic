@@ -41,7 +41,13 @@ BEGIN;
 UPDATE animals;
 SET species = 'unspecified';
 
+SELECT species 
+FROM animals;
+
 ROLLBACK;
+
+SELECT species 
+FROM animals;
 
 -- Adding Species to the species column
 
