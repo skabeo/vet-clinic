@@ -178,7 +178,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/skabeo/vet-clinic.git/issues).
+Feel free to check the [issues page](https://github.com/skabeo/vet-clinic/issues).
 
 If you would like to contribute to this project, you can follow these steps:
 
