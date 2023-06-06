@@ -34,6 +34,15 @@ SELECT *
 FROM animals 
 WHERE weight_kg BETWEEN 10.4 AND 17.3
 
+-- Adding 'unspecified' to the species
+
+BEGIN;
+
+UPDATE animals;
+SET species = 'unspecified';
+
+ROLLBACK;
+
 -- Adding Species to the species column
 
 BEGIN;
