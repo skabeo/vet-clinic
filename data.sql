@@ -18,3 +18,57 @@ VALUES
 UPDATE animals
 SET name = 'Plantmon'
 WHERE id = 6;
+
+-- Inserting data into owners table
+
+INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34);
+INSERT INTO owners (full_name, age) VALUES ('Jennifer Orwell', 19);
+INSERT INTO owners (full_name, age) VALUES ('Bob', 45);
+INSERT INTO owners (full_name, age) VALUES ('Melody Pond', 77);
+INSERT INTO owners (full_name, age) VALUES ('Dean Winchester', 14);
+INSERT INTO owners (full_name, age) VALUES ('Jodie Whittaker', 38);
+
+-- Inserting data into species table
+
+INSERT INTO species (name) VALUES ('Pokemon');
+INSERT INTO species (name) VALUES ('Digimon');
+
+-- Updating species_id column in animals table
+
+    -- If the name ends in "mon" it will be Digimon
+    UPDATE animals
+    SET species_id = (SELECT id FROM species WHERE name = 'Digimon')
+    WHERE name LIKE '%mon';
+
+    -- All other animals are Pokemon
+    UPDATE animals
+    SET species_id = (SELECT id FROM species WHERE name = 'Pokemon')
+    WHERE name NOT LIKE '%mon';
+
+
+-- Updating entries in the owners table
+
+    -- Sam Smith owns Agumon
+    UPDATE animals
+    SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+    WHERE name = 'Agumon';
+
+    -- Jennifer Orwell owns Gabumon and Pikachu.
+    UPDATE animals
+    SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+    WHERE name IN ('Gabumon', 'Pikachu');
+
+    -- Bob owns Devimon and Plantmon.
+    UPDATE animals
+    SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
+    WHERE name IN ('Devimon', 'Plantmon');
+
+    -- Melody Pond owns Charmander, Squirtle, and Blossom.
+    UPDATE animals
+    SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+    WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+
+    -- Dean Winchester owns Angemon and Boarmon.
+    UPDATE animals
+    SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+    WHERE name IN ('Angemon', 'Boarmon');
